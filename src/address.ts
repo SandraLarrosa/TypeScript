@@ -1,5 +1,3 @@
-/* Export dirección */
-
 export class Address {
   constructor(
     private _street: string,

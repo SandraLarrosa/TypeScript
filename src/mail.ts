@@ -1,2 +1,9 @@
-console.log('Soy el main');
-/* Expor mail */
+export class Mail {
+  constructor(private _email: string) {}
+  set email(email: string) {
+    this._email = email;
+  }
+  get email() {
+    return this._email;
+  }
+}

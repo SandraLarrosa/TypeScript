@@ -1,6 +1,8 @@
 /* Import Persona, Mail, Dirección y teéfono */
 import { Person } from './person';
 import { Address } from './address';
+import { Email } from './address';
+import { Phone } from './address';
 
 const directionPerson1 = new Address(
   'Avenida Antonio López',

@@ -82,9 +82,17 @@ class Person {
         return this._note;
     }
     showPersonInfo() {
-        let allAddresses = '';
+        let allAddresses;
         for (const address of this._addresses) {
             allAddresses = allAddresses + address.showAddress();
+        }
+        let allNumbers;
+        for (const number of this._phones) {
+            allNumbers = allNumbers + number.numberPhone;
+        }
+        let allEmail;
+        for (const email of this._mails) {
+            allEmail = allEmail + email.email;
         }
         let personInfo = `Información personal:
     Nombre: ${this._name}
@@ -95,8 +103,8 @@ class Person {
     Color Favorito: ${this._favoriteColor}
     Género: ${this._gender}
     Dirección: ${allAddresses}
-    Email: ${this._mails}
-    Teléfono: ${this._phones}
+    Email: ${allEmail}
+    Teléfono: ${allNumbers}
     Notas: ${this._note}`;
         return personInfo;
     }

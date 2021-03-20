@@ -1,2 +1,9 @@
-console.log('soy el teléfono');
-/* Export teléfono */
+export class Phone {
+  constructor(private _numberPhone: number) {}
+  set numberPhone(numberPhone: number) {
+    this._numberPhone = numberPhone;
+  }
+  get numberPhone() {
+    return this._numberPhone;
+  }
+}
