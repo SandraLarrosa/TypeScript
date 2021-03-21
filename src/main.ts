@@ -1,7 +1,7 @@
-import { Person } from './person';
-import { Address } from './address';
-import { Mail } from './mail';
-import { Phone } from './phone';
+import { Person } from './agenda/person';
+import { Address } from './agenda/address';
+import { Mail } from './agenda/mail';
+import { Phone } from './agenda/phone';
 
 /*
   Tenía dudas sobre el enunciado en el apartado de añadir dirección, email y teléfono.

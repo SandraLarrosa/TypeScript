@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const person_1 = require("./person");
-const address_1 = require("./address");
-const mail_1 = require("./mail");
-const phone_1 = require("./phone");
+const person_1 = require("./agenda/person");
+const address_1 = require("./agenda/address");
+const mail_1 = require("./agenda/mail");
+const phone_1 = require("./agenda/phone");
 /*
   Tenía dudas sobre el enunciado en el apartado de añadir dirección, email y teléfono.
   Por eso he creado funciones que permiten tanto añadir nuevos datos como reemplazar los datos
