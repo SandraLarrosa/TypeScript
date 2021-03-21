@@ -1,4 +1,3 @@
-/* Import Persona, Mail, Dirección y teéfono */
 import { Person } from './person';
 import { Address } from './address';
 import { Mail } from './mail';
@@ -7,7 +6,7 @@ import { Phone } from './phone';
 function buildAgenda(): Array<Person> {
   let agenda: Array<Person> = [];
 
-  const directionPerson1 = new Address(
+  const directionPerson1: Address = new Address(
     'Avenida Antonio López',
     10,
     2,
@@ -16,7 +15,7 @@ function buildAgenda(): Array<Person> {
     'Pinto',
     'Madrid'
   );
-  const person1 = new Person(
+  const person1: Person = new Person(
     'Noa',
     'Sanchez López',
     6,
@@ -51,7 +50,7 @@ function buildAgenda(): Array<Person> {
     [new Phone(677896523)],
     'Hola soy MARIO'
   );
-  const directionPerson3 = new Address(
+  const directionPerson3: Address = new Address(
     'Calle del desastre',
     1,
     2,
@@ -60,7 +59,7 @@ function buildAgenda(): Array<Person> {
     'Valdemoro',
     'Madrid'
   );
-  const person3 = new Person(
+  const person3: Person = new Person(
     'Sara',
     'López Espinosa',
     32,
@@ -86,25 +85,25 @@ function showAgenda(agenda: Array<Person>): void {
 }
 
 let agenda = buildAgenda();
-showAgenda(agenda); //Muestra los datos iniciales
+showAgenda(agenda); //Muestra la agenda con los datos iniciales
 
 function changeDataAgenda(
   numberDni: string,
-  newDirection: Address,
+  newAddress: Address,
   newMail: Mail,
   newPhone: Phone
 ): void {
   for (const person of agenda) {
     if (person.dni === numberDni) {
-      person.addAddress(newDirection);
+      person.addAddress(newAddress);
       person.addMail(newMail);
       person.addPhone(newPhone);
     }
   }
 }
 
-const searchDni: string = '50133658F';
-const newDirectionMario: Address = new Address(
+const dniMario: string = '50133658F';
+const newAddressMario: Address = new Address(
   'Rotonda circular',
   5,
   3,
@@ -116,5 +115,5 @@ const newDirectionMario: Address = new Address(
 const newMailMario: Mail = new Mail('marionuevo@gmail.com');
 const newPhoneMario: Phone = new Phone(699325689);
 
-changeDataAgenda(searchDni, newDirectionMario, newMailMario, newPhoneMario);
-showAgenda(agenda); //Muestra con los datos añadidos
+changeDataAgenda(dniMario, newAddressMario, newMailMario, newPhoneMario);
+showAgenda(agenda); //Muestra la agenda con los datos añadidos

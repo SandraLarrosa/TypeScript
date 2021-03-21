@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-/* Import Persona, Mail, Dirección y teéfono */
 const person_1 = require("./person");
 const address_1 = require("./address");
 const mail_1 = require("./mail");
@@ -24,19 +23,19 @@ function showAgenda(agenda) {
     }
 }
 let agenda = buildAgenda();
-showAgenda(agenda); //Muestra los datos iniciales
-function changeDataAgenda(numberDni, newDirection, newMail, newPhone) {
+showAgenda(agenda); //Muestra la agenda con los datos iniciales
+function changeDataAgenda(numberDni, newAddress, newMail, newPhone) {
     for (const person of agenda) {
         if (person.dni === numberDni) {
-            person.addAddress(newDirection);
+            person.addAddress(newAddress);
             person.addMail(newMail);
             person.addPhone(newPhone);
         }
     }
 }
-const searchDni = '50133658F';
-const newDirectionMario = new address_1.Address('Rotonda circular', 5, 3, 'B', 28000, 'Madrid', 'Madrid');
+const dniMario = '50133658F';
+const newAddressMario = new address_1.Address('Rotonda circular', 5, 3, 'B', 28000, 'Madrid', 'Madrid');
 const newMailMario = new mail_1.Mail('marionuevo@gmail.com');
 const newPhoneMario = new phone_1.Phone(699325689);
-changeDataAgenda(searchDni, newDirectionMario, newMailMario, newPhoneMario);
-showAgenda(agenda); //Muestra con los datos añadidos
+changeDataAgenda(dniMario, newAddressMario, newMailMario, newPhoneMario);
+showAgenda(agenda); //Muestra la agenda con los datos añadidos
