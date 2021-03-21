@@ -1,4 +1,3 @@
-/* Import Dirección, Mail y Teléfono */
 import { Address } from './address';
 import { Phone } from './phone';
 import { Mail } from './mail';
@@ -52,37 +51,37 @@ export class Person {
     this._note = note;
   }
 
-  get name() {
+  get name(): string {
     return this._name;
   }
-  get lastName() {
+  get lastName(): string {
     return this._lastName;
   }
-  get age() {
+  get age(): number {
     return this._age;
   }
-  get dni() {
+  get dni(): string {
     return this._dni;
   }
-  get birthday() {
+  get birthday(): Date {
     return this._birthday;
   }
-  get favoriteColor() {
+  get favoriteColor(): string {
     return this._favoriteColor;
   }
-  get gender() {
+  get gender(): string {
     return this._gender;
   }
-  get addresses() {
+  get addresses(): Array<Address> {
     return this._addresses;
   }
-  get mails() {
+  get mails(): Array<Mail> {
     return this._mails;
   }
-  get phones() {
+  get phones(): Array<Phone> {
     return this._phones;
   }
-  get note() {
+  get note(): string {
     return this._note;
   }
   addAddress(newAddress: Address): void {
@@ -100,20 +99,32 @@ export class Person {
     let formatedBirthday = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
     return formatedBirthday;
   }
-  showPersonInfo(): string {
+  showAllAddresses(): string {
     let allAddresses: string = '';
-    for (const address of this._addresses) {
-      allAddresses = allAddresses + address.showAddress();
+    for (let i = 0; i < this._addresses.length; i++) {
+      allAddresses = `${allAddresses}\n\tDirección ${i + 1}: ${this._addresses[
+        i
+      ].showAddress()}`;
     }
+    return allAddresses;
+  }
+  showAllPhones(): string {
     let allPhones: string = '';
-    for (const number of this._phones) {
-      allPhones = `${allPhones} ${number.numberPhone} `;
+    for (let i = 0; i < this._phones.length; i++) {
+      allPhones = `${allPhones}\n\tEmail ${i + 1}: ${
+        this._phones[i].numberPhone
+      }`;
     }
+    return allPhones;
+  }
+  showAllEmails(): string {
     let allEmail: string = '';
     for (let i = 0; i < this._mails.length; i++) {
-      allEmail = `${allEmail}\n\tEmail ${i + 1}: ${this._mails[i].email}`;
+      allEmail = `${allEmail}\n\tTeléfono ${i + 1}: ${this._mails[i].email}`;
     }
-
+    return allEmail;
+  }
+  showPersonInfo(): string {
     let personInfo: string = `Información personal de ${this._name} ${
       this._lastName
     }:
@@ -124,9 +135,9 @@ export class Person {
     Fecha de Cumpleaños: ${this.getFormatedBirthday()}
     Color Favorito: ${this._favoriteColor}
     Género: ${this._gender}
-    Dirección: ${allAddresses}
-    Email: ${allEmail}
-    Teléfono: ${allPhones}
+    Dirección: ${this.showAllAddresses()}
+    Email: ${this.showAllEmails()}
+    Teléfono: ${this.showAllPhones()}
     Notas: ${this._note}`;
     return personInfo;
   }

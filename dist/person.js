@@ -95,19 +95,28 @@ class Person {
         let formatedBirthday = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
         return formatedBirthday;
     }
-    showPersonInfo() {
+    showAllAddresses() {
         let allAddresses = '';
-        for (const address of this._addresses) {
-            allAddresses = allAddresses + address.showAddress();
+        for (let i = 0; i < this._addresses.length; i++) {
+            allAddresses = `${allAddresses}\n\tDirección ${i + 1}: ${this._addresses[i].showAddress()}`;
         }
+        return allAddresses;
+    }
+    showAllPhones() {
         let allPhones = '';
-        for (const number of this._phones) {
-            allPhones = `${allPhones} ${number.numberPhone} `;
+        for (let i = 0; i < this._phones.length; i++) {
+            allPhones = `${allPhones}\n\tEmail ${i + 1}: ${this._phones[i].numberPhone}`;
         }
+        return allPhones;
+    }
+    showAllEmails() {
         let allEmail = '';
         for (let i = 0; i < this._mails.length; i++) {
-            allEmail = `${allEmail}\n\tEmail ${i + 1}: ${this._mails[i].email}`;
+            allEmail = `${allEmail}\n\tTeléfono ${i + 1}: ${this._mails[i].email}`;
         }
+        return allEmail;
+    }
+    showPersonInfo() {
         let personInfo = `Información personal de ${this._name} ${this._lastName}:
     Nombre: ${this._name}
     Apellidos: ${this._lastName}
@@ -116,9 +125,9 @@ class Person {
     Fecha de Cumpleaños: ${this.getFormatedBirthday()}
     Color Favorito: ${this._favoriteColor}
     Género: ${this._gender}
-    Dirección: ${allAddresses}
-    Email: ${allEmail}
-    Teléfono: ${allPhones}
+    Dirección: ${this.showAllAddresses()}
+    Email: ${this.showAllEmails()}
+    Teléfono: ${this.showAllPhones()}
     Notas: ${this._note}`;
         return personInfo;
     }

@@ -54,9 +54,8 @@ class Address {
         return this._province;
     }
     showAddress() {
-        let address = `
-    \t${this._street}, ${this._number} ${this._floor} ${this._letter} 
-    \t${this._zipCode} ${this._village} (${this._province})`;
+        let address = ` ${this._street}, ${this._number} ${this._floor} ${this._letter}
+                      ${this._zipCode} ${this._village} (${this._province})`;
         return address;
     }
 }
