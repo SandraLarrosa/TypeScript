@@ -31,10 +31,10 @@ export class Address {
     this._province = province;
   }
 
-  get street() {
+  get street(): string {
     return this._street;
   }
-  get number() {
+  get number(): number {
     return this._number;
   }
   get floor() {
@@ -53,10 +53,10 @@ export class Address {
     return this._province;
   }
 
-  showAddress() {
+  showAddress(): string {
     let address: string = `
-     ${this._street}, ${this._number} ${this._floor} ${this._letter} 
-     ${this._zipCode} ${this._village} (${this._province})`;
+    \t${this._street}, ${this._number} ${this._floor} ${this._letter} 
+    \t${this._zipCode} ${this._village} (${this._province})`;
     return address;
   }
 }
