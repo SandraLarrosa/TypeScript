@@ -93,6 +93,15 @@ export class Person {
   addPhone(newPhone: Phone): void {
     this._phones.push(newPhone);
   }
+  setAddress(newAddress: Address): void {
+    this._addresses = [newAddress];
+  }
+  setMail(newMail: Mail): void {
+    this._mails = [newMail];
+  }
+  setPhone(newPhone: Phone): void {
+    this._phones = [newPhone];
+  }
 
   getFormatedBirthday(): string {
     let date = this._birthday;
@@ -111,16 +120,18 @@ export class Person {
   showAllPhones(): string {
     let allPhones: string = '';
     for (let i = 0; i < this._phones.length; i++) {
-      allPhones = `${allPhones}\n\tEmail ${i + 1}: ${
+      allPhones = `${allPhones}\n\tTeléfono ${i + 1}: ${
         this._phones[i].numberPhone
-      }`;
+      } (${this._phones[i].type})`;
     }
     return allPhones;
   }
   showAllEmails(): string {
     let allEmail: string = '';
     for (let i = 0; i < this._mails.length; i++) {
-      allEmail = `${allEmail}\n\tTeléfono ${i + 1}: ${this._mails[i].email}`;
+      allEmail = `${allEmail}\n\tEmail ${i + 1}: ${this._mails[i].email} (${
+        this._mails[i].type
+      })`;
     }
     return allEmail;
   }

@@ -2,8 +2,15 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Phone = void 0;
 class Phone {
-    constructor(_numberPhone) {
+    constructor(_type, _numberPhone) {
+        this._type = _type;
         this._numberPhone = _numberPhone;
+    }
+    set type(type) {
+        this._type = type;
+    }
+    get type() {
+        return this._type;
     }
     set numberPhone(numberPhone) {
         this._numberPhone = numberPhone;

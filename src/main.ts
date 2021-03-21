@@ -3,6 +3,16 @@ import { Address } from './address';
 import { Mail } from './mail';
 import { Phone } from './phone';
 
+/*
+  Tenía dudas sobre el enunciado en el apartado de añadir dirección, email y teléfono.
+  Por eso he creado funciones que permiten tanto añadir nuevos datos como reemplazar los datos
+  ya existentes.
+
+  Respecto al pintar los datos de cada persona he optado por tener una función
+  dentro de la clase Person que sea la que me de los datos ya formateados para cada persona,
+  ya que es más limpio y deja la responsabilidad del formato a la propia clase.
+*/
+
 function buildAgenda(): Array<Person> {
   let agenda: Array<Person> = [];
 
@@ -24,8 +34,8 @@ function buildAgenda(): Array<Person> {
     'Rosa',
     'Mujer',
     [directionPerson1],
-    [new Mail('aaaaaa@gmail.com')],
-    [new Phone(636948219)],
+    [new Mail('Personal', 'aaaaaa@gmail.com')],
+    [new Phone('Personal', 636948219)],
     'Hola caracola'
   );
   const directionPerson2: Address = new Address(
@@ -46,8 +56,8 @@ function buildAgenda(): Array<Person> {
     'Negro',
     'Hombre',
     [directionPerson2],
-    [new Mail('marioelmejor@gmail.com')],
-    [new Phone(677896523)],
+    [new Mail('Trabajo', 'marioelmejor@gmail.com')],
+    [new Phone('Trabajo', 677896523)],
     'Hola soy MARIO'
   );
   const directionPerson3: Address = new Address(
@@ -68,8 +78,8 @@ function buildAgenda(): Array<Person> {
     'Morado',
     'Mujer',
     [directionPerson3],
-    [new Mail('saritar@gmail.com')],
-    [new Phone(699314569)],
+    [new Mail('Personal', 'saritar@gmail.com')],
+    [new Phone('Personal', 699314569)],
     'Hola soy Sara y esta es mi agenda personal'
   );
   agenda.push(person1);
@@ -84,10 +94,7 @@ function showAgenda(agenda: Array<Person>): void {
   }
 }
 
-let agenda = buildAgenda();
-showAgenda(agenda); //Muestra la agenda con los datos iniciales
-
-function changeDataAgenda(
+function addNewPersonData(
   numberDni: string,
   newAddress: Address,
   newMail: Mail,
@@ -102,6 +109,24 @@ function changeDataAgenda(
   }
 }
 
+function changePersonData(
+  numberDni: string,
+  newAddress: Address,
+  newMail: Mail,
+  newPhone: Phone
+): void {
+  for (const person of agenda) {
+    if (person.dni === numberDni) {
+      person.setAddress(newAddress);
+      person.setMail(newMail);
+      person.setPhone(newPhone);
+    }
+  }
+}
+
+let agenda = buildAgenda();
+showAgenda(agenda); //Muestra la agenda con los datos iniciales
+
 const dniMario: string = '50133658F';
 const newAddressMario: Address = new Address(
   'Rotonda circular',
@@ -112,8 +137,22 @@ const newAddressMario: Address = new Address(
   'Madrid',
   'Madrid'
 );
-const newMailMario: Mail = new Mail('marionuevo@gmail.com');
-const newPhoneMario: Phone = new Phone(699325689);
+const newMailMario: Mail = new Mail('Personal', 'marionuevo@gmail.com');
+const newPhoneMario: Phone = new Phone('Personal', 699325689);
 
-changeDataAgenda(dniMario, newAddressMario, newMailMario, newPhoneMario);
+const dniSara: string = '59222333D';
+const changeAddressSara: Address = new Address(
+  'Rotonda Cuadrada',
+  15,
+  2,
+  'F',
+  28000,
+  'Madrid',
+  'Madrid'
+);
+const changeMailSara: Mail = new Mail('Personal', 'minuevoemail@gmail.com');
+const changePhoneSara: Phone = new Phone('Personal', 608934597);
+
+addNewPersonData(dniMario, newAddressMario, newMailMario, newPhoneMario);
+changePersonData(dniSara, changeAddressSara, changeMailSara, changePhoneSara);
 showAgenda(agenda); //Muestra la agenda con los datos añadidos

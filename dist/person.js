@@ -90,6 +90,15 @@ class Person {
     addPhone(newPhone) {
         this._phones.push(newPhone);
     }
+    setAddress(newAddress) {
+        this._addresses = [newAddress];
+    }
+    setMail(newMail) {
+        this._mails = [newMail];
+    }
+    setPhone(newPhone) {
+        this._phones = [newPhone];
+    }
     getFormatedBirthday() {
         let date = this._birthday;
         let formatedBirthday = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
@@ -105,14 +114,14 @@ class Person {
     showAllPhones() {
         let allPhones = '';
         for (let i = 0; i < this._phones.length; i++) {
-            allPhones = `${allPhones}\n\tEmail ${i + 1}: ${this._phones[i].numberPhone}`;
+            allPhones = `${allPhones}\n\tTeléfono ${i + 1}: ${this._phones[i].numberPhone} (${this._phones[i].type})`;
         }
         return allPhones;
     }
     showAllEmails() {
         let allEmail = '';
         for (let i = 0; i < this._mails.length; i++) {
-            allEmail = `${allEmail}\n\tTeléfono ${i + 1}: ${this._mails[i].email}`;
+            allEmail = `${allEmail}\n\tEmail ${i + 1}: ${this._mails[i].email} (${this._mails[i].type})`;
         }
         return allEmail;
     }
