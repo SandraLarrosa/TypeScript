@@ -3,7 +3,7 @@ export class Phone {
   set numberPhone(numberPhone: number) {
     this._numberPhone = numberPhone;
   }
-  get numberPhone() {
+  get numberPhone(): number {
     return this._numberPhone;
   }
 }

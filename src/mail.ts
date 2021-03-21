@@ -3,7 +3,7 @@ export class Mail {
   set email(email: string) {
     this._email = email;
   }
-  get email() {
+  get email(): string {
     return this._email;
   }
 }
