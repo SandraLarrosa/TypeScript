@@ -37,24 +37,24 @@ export class Address {
   get number(): number {
     return this._number;
   }
-  get floor() {
+  get floor(): number {
     return this._floor;
   }
-  get letter() {
+  get letter(): string {
     return this._letter;
   }
-  get zipCode() {
+  get zipCode(): number {
     return this._zipCode;
   }
-  get village() {
+  get village(): string {
     return this._village;
   }
-  get province() {
+  get province(): string {
     return this._province;
   }
 
   showAddress(): string {
-    let address: string = ` ${this._street}, ${this._number} ${this._floor} ${this._letter}
+    let address: string = ` ${this._street}, ${this._number} ${this._floor}º${this._letter}
                       ${this._zipCode} ${this._village} (${this._province})`;
     return address;
   }
